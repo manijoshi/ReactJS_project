@@ -9,7 +9,13 @@ const ContactCard=(props)=>{
                 <div className="header">{name}</div>
                 <div>{email}</div>
             </div>
-            <i style={{color:"red",marginTop:"7px"}} className="trash alternate outline icon"></i>
+            <i 
+                style={{color:"red",marginTop:"7px"}} 
+                className="trash alternate outline icon" 
+                onClick={()=>{
+                    props.clickHander(id)
+                }}
+            ></i>
         </div>
     );
 };
