@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
+import {BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 import "./App.css";
 import Header from "./Header";
 import AddContact from "./AddContact";
@@ -10,7 +11,6 @@ function App() {
   const [contacts, setContacts] = useState(
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []
   );
-
   const addContactHandler = (contact) => {
     console.log(contact);
     setContacts([...contacts, { id: uuid(), ...contact }]);
@@ -30,9 +30,17 @@ function App() {
 
   return (
     <div className="ui container">
-      <Header />
-      <AddContact addContactHandler={addContactHandler} />
-      <ContactList contacts={contacts} getContactId={removeContactHandler} />
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/add" element={
+              <AddContact addContactHandler={addContactHandler}/>
+            } />
+          <Route path="/" element={
+              <ContactList contacts={contacts} getContactId={removeContactHandler} />
+            } />
+        </Routes>
+      </Router>
     </div>
   );
 }
