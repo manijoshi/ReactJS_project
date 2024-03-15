@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ContactCard from "./ContactCard";
+import { useContactsCrud } from "../context/ContactsCrudContext";
 
 const ContactList=(props)=>{
-    const deleteContactHandler=(id)=>{
-        props.getContactId(id);
-    };
-    const renderContactList=props.contacts.map((contact)=>{
+    const {contacts,retrieveContacts,text}= useContactsCrud();
+    useEffect(()=>{
+        retrieveContacts();
+    },[]);
+    const renderContactList=(text.length<1?contacts:"").map((contact)=>{
         return(
-            <ContactCard contact={contact} clickHander={deleteContactHandler} key={contact.id}/>
+            <ContactCard 
+                contact={contact} 
+                key={contact.id}
+            />
         );
     });
     return(
@@ -19,7 +24,12 @@ const ContactList=(props)=>{
                     <button className="ui button blue right">Add Contact</button>
                 </Link>
             </h2>
-            <div className="ui celled list">{renderContactList}</div>
+            <div className="ui celled list">
+                {
+                    renderContactList.length>0?
+                    renderContactList:"No data available"
+                }
+            </div>
         </div>
     );
 }
