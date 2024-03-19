@@ -15,7 +15,7 @@ const ContactDetail=()=>{
                 </div>
             </div>
             <div className="center-div">
-                <Link to='/contacts'>
+                <Link to='/'>
                     <button className="ui button blue center">
                         Back to Contact List
                     </button>

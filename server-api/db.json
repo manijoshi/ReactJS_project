@@ -1,0 +1,24 @@
+{
+  "contacts": [
+    {
+      "id": "0f225456-e582-4678-8571-4cfa83759fb0",
+      "name": "Alka",
+      "email": "alka@gmail.com"
+    },
+    {
+      "id": "704b89fd-f67d-4bc5-973b-0976e22bf7eb",
+      "name": "Monika",
+      "email": "monika@gmail.com"
+    },
+    {
+      "id": "762cfa7f-0f2b-4c1a-9d7f-3690a2263c65",
+      "name": "Manisha Joshi",
+      "email": "manijoshi2000@gmail.com"
+    },
+    {
+      "id": "c45cd03a-a127-44d5-8a5c-44b586d96b09",
+      "name": "Yash Joshi",
+      "email": "yash@gmail.com"
+    }
+  ]
+}

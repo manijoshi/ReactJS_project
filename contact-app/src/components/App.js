@@ -9,13 +9,6 @@ import { ContactsCrudContextProvider } from "../context/ContactsCrudContext";
 import ContactDetail from "./ContactDetail";
 
 function App() {
-  const LOCAL_STORAGE_KEY = "contacts";
-  const [contacts, setContacts] = useState(
-    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []
-  );
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-  }, [contacts]);
 
   return (
     <div className="ui container">
@@ -26,7 +19,7 @@ function App() {
           <Route path="/add" element={
               <AddContact />
             } />
-          <Route exact path="/contacts" element={
+          <Route exact path="/" element={
               <ContactList />
             } />
           <Route path="/contact/:id" element={<ContactDetail/>}/>

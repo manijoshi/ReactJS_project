@@ -15,7 +15,7 @@ const AddContact=(props)=> {
     addContactHandler({name,email});
     setName("")
     setEmail("");
-    navigate("/contacts");
+    navigate("/");
   };
     return (
       <div className="ui main">
