@@ -28,13 +28,23 @@ export function ContactsCrudContextProvider({children}){
       const response=await api.post("/contacts",request);
       setContacts([...contacts, response.data]);
       };
+    const editContactHandler = async(contact)=>{
+      const response = await api.put(`/contacts/${contact.id}`,contact);
+      const {id} = response.data;
+      setContacts(
+        contacts.map((contact)=>{
+          return contact.id===id?{...response.data}:contact;
+        })
+      );
+    };
     const value = {
       contact,
       contacts,
       retrieveContacts,
       addContactHandler,
       text,
-      removeContactHandler
+      removeContactHandler,
+      editContactHandler
     };
     return <contactsCrudContext.Provider value={value}>
       {children}

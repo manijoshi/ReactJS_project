@@ -1,11 +1,6 @@
 {
   "contacts": [
     {
-      "id": "0f225456-e582-4678-8571-4cfa83759fb0",
-      "name": "Alka",
-      "email": "alka@gmail.com"
-    },
-    {
       "id": "704b89fd-f67d-4bc5-973b-0976e22bf7eb",
       "name": "Monika",
       "email": "monika@gmail.com"
