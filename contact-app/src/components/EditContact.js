@@ -15,7 +15,7 @@ const EditContactHandler=()=>{
         if(newName===""||newEmail===""){
             alert("All the fields are mandatory")
         }
-        editContactHandler({id,newName,newEmail});
+        editContactHandler({id,name:newName,email:newEmail});
         setNewName("");
         setNewEmail("");
         navigate("/");

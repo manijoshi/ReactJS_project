@@ -4,11 +4,14 @@ import ContactCard from "./ContactCard";
 import { useContactsCrud } from "../context/ContactsCrudContext";
 
 const ContactList=(props)=>{
-    const {contacts,retrieveContacts,text}= useContactsCrud();
+    const {contacts,retrieveContacts,text,searchContactHandler,searchResults}= useContactsCrud();
     useEffect(()=>{
         retrieveContacts();
     },[]);
-    const renderContactList=(text.length<1?contacts:"").map((contact)=>{
+    const onUserSearch=(e)=>{
+        searchContactHandler(e.target.value);
+    };
+    const renderContactList=(text.length<1?contacts:searchResults).map((contact)=>{
         return(
             <ContactCard 
                 contact={contact} 
@@ -24,6 +27,18 @@ const ContactList=(props)=>{
                     <button className="ui button blue right">Add Contact</button>
                 </Link>
             </h2>
+            <div className="ui search">
+                <div className="ui icon input">
+                    <input 
+                    type="text" 
+                    placeholder="search Contact" 
+                    className="prompt"
+                    value={text}
+                    onChange={(e)=>onUserSearch(e)}
+                    />
+                    <i className="search icon"></i>
+                </div>
+            </div>
             <div className="ui celled list">
                 {
                     renderContactList.length>0?
